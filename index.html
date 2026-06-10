@@ -1,0 +1,2355 @@
+Aquí va el HTML completo directamente en el chat, con la arquitectura corregida y separada por intención UX: promesa, confianza, diferenciadores, transparencia, acompañamiento, seguridad, vocación, talleres profesionales, instalaciones, ambiente universitario, internacionalización, plan, vida estudiantil, testimonios, admisión, FAQ y contacto. La información base retoma los puntos públicos actuales de Prepa UVP: formación laboral, tutorías, departamento psicopedagógico, becas desde primer semestre, acceso a 35 licenciaturas/ingenierías, laboratorios universitarios, servicios UVP, plan de estudios, áreas de capacitación, fechas de prueba diagnóstica y contacto institucional.  ￼
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Prepa UVP | Descubre tu camino antes de llegar a la universidad</title>
+<meta name="description" content="Prepa UVP: bachillerato con formación laboral, acompañamiento psicopedagógico, tutorías, becas desde primer semestre, talleres con profesionales, instalaciones universitarias, orientación vocacional, intercambios y vida estudiantil." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+:root{
+--purple:#2B0A49;
+--purple2:#4C1380;
+--violet:#6D28D9;
+--lilac:#A855F7;
+--soft:#F5F0FB;
+--soft2:#FBF8FF;
+--dark:#12051F;
+--text:#1B102A;
+--muted:#6B6475;
+--border:rgba(76,19,128,.14);
+--green:#16A34A;
+--orange:#F97316;
+--blue:#2563EB;
+--tooltip:#062D0D;
+}
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+html{
+scroll-behavior:smooth;
+}
+body{
+font-family:Inter,sans-serif;
+background:var(--soft);
+color:var(--text);
+overflow-x:hidden;
+}
+img{
+display:block;
+width:100%;
+}
+a{
+text-decoration:none;
+}
+.container{
+width:min(1340px,92%);
+margin:auto;
+}
+section{
+padding:96px 0;
+position:relative;
+}
+.white{
+background:#fff;
+}
+.gradient{
+background:linear-gradient(135deg,#F5F0FB,#fff);
+}
+.dark{
+background:#12051F;
+color:#fff;
+}
+.section-kicker{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:9px 16px;
+border-radius:999px;
+background:rgba(109,40,217,.08);
+color:var(--violet);
+font-size:.78rem;
+font-weight:900;
+letter-spacing:.06em;
+text-transform:uppercase;
+margin-bottom:20px;
+}
+.dark .section-kicker,
+.hero-badge{
+background:rgba(255,255,255,.12);
+border:1px solid rgba(255,255,255,.16);
+color:#fff;
+}
+.section-title{
+font-size:clamp(2rem,3.2vw,3.45rem);
+line-height:1.02;
+letter-spacing:-.055em;
+color:var(--purple);
+max-width:960px;
+margin-bottom:18px;
+}
+.dark .section-title{
+color:#fff;
+}
+.section-copy{
+font-size:1.02rem;
+line-height:1.78;
+color:var(--muted);
+max-width:840px;
+}
+.dark .section-copy{
+color:rgba(255,255,255,.72);
+}
+.btn{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+padding:16px 24px;
+border-radius:16px;
+font-weight:850;
+font-size:.95rem;
+transition:.25s ease;
+border:0;
+cursor:pointer;
+font-family:Inter,sans-serif;
+}
+.btn-primary{
+background:linear-gradient(135deg,var(--violet),var(--lilac));
+color:#fff;
+box-shadow:0 18px 44px rgba(109,40,217,.28);
+}
+.btn-primary:hover{
+transform:translateY(-2px);
+box-shadow:0 24px 55px rgba(109,40,217,.34);
+}
+.btn-secondary{
+background:rgba(255,255,255,.12);
+color:#fff;
+border:1px solid rgba(255,255,255,.18);
+backdrop-filter:blur(18px);
+}
+.btn-light{
+background:#fff;
+color:var(--purple);
+border:1px solid var(--border);
+box-shadow:0 18px 44px rgba(43,10,73,.08);
+}
+.btn-dark{
+background:var(--purple);
+color:#fff;
+}
+.note{
+position:relative;
+display:inline-flex;
+align-items:center;
+justify-content:center;
+width:22px;
+height:22px;
+border-radius:50%;
+background:rgba(6,45,13,.1);
+color:#0F5C1C;
+font-size:.76rem;
+font-weight:900;
+cursor:help;
+text-transform:none;
+letter-spacing:0;
+}
+.note.light{
+background:rgba(255,255,255,.16);
+color:#fff;
+}
+.note::before{
+content:"";
+position:absolute;
+left:50%;
+bottom:calc(100% + 12px);
+transform:translateX(-50%) scale(.92);
+border-left:9px solid transparent;
+border-right:9px solid transparent;
+border-top:9px solid var(--tooltip);
+opacity:0;
+pointer-events:none;
+transition:.18s;
+z-index:50;
+}
+.note::after{
+content:attr(data-note);
+position:absolute;
+left:50%;
+bottom:calc(100% + 20px);
+transform:translateX(-50%) scale(.92);
+width:min(380px,78vw);
+padding:20px 22px;
+border-radius:18px;
+background:var(--tooltip);
+color:#fff;
+font-size:.9rem;
+font-weight:750;
+line-height:1.45;
+box-shadow:0 20px 45px rgba(0,0,0,.24);
+opacity:0;
+pointer-events:none;
+transition:.18s;
+z-index:50;
+}
+.note:hover::before,
+.note:hover::after{
+opacity:1;
+transform:translateX(-50%) scale(1);
+}
+.navbar{
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+width:min(1280px,92%);
+z-index:1000;
+}
+.nav-inner{
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+padding:16px 22px;
+border-radius:24px;
+background:rgba(255,255,255,.84);
+border:1px solid rgba(255,255,255,.72);
+backdrop-filter:blur(22px);
+box-shadow:0 20px 70px rgba(43,10,73,.12);
+}
+.logo{
+display:flex;
+align-items:center;
+gap:12px;
+font-weight:900;
+color:var(--purple);
+font-size:1.12rem;
+}
+.logo-mark{
+width:40px;
+height:40px;
+border-radius:13px;
+background:linear-gradient(135deg,var(--purple),var(--lilac));
+display:flex;
+align-items:center;
+justify-content:center;
+color:#fff;
+font-weight:900;
+}
+.nav-links{
+display:flex;
+gap:15px;
+}
+.nav-links a{
+font-size:.8rem;
+font-weight:750;
+color:#39244F;
+}
+.nav-actions{
+display:flex;
+gap:10px;
+}
+.hero{
+min-height:100vh;
+padding:168px 0 90px;
+background:
+radial-gradient(circle at 12% 12%,rgba(168,85,247,.35),transparent 28%),
+linear-gradient(135deg,#1A052E 0%,#3B0764 50%,#7E22CE 100%);
+overflow:hidden;
+}
+.hero-grid{
+display:grid;
+grid-template-columns:1.02fr .98fr;
+gap:32px;
+align-items:stretch;
+}
+.hero-copy{
+padding:62px;
+border-radius:42px;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.12);
+backdrop-filter:blur(20px);
+}
+.hero-badge{
+display:inline-flex;
+align-items:center;
+gap:10px;
+padding:10px 16px;
+border-radius:999px;
+font-size:.82rem;
+font-weight:900;
+margin-bottom:24px;
+}
+.hero-title{
+font-size:clamp(3.3rem,6vw,6.2rem);
+line-height:.88;
+letter-spacing:-.085em;
+color:#fff;
+max-width:780px;
+margin-bottom:26px;
+}
+.hero-subtitle{
+font-size:1.08rem;
+line-height:1.82;
+color:rgba(255,255,255,.78);
+max-width:720px;
+margin-bottom:34px;
+}
+.hero-actions{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+margin-bottom:34px;
+}
+.hero-trust{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:14px;
+max-width:700px;
+}
+.hero-trust-item{
+padding:18px;
+border-radius:20px;
+background:rgba(255,255,255,.09);
+border:1px solid rgba(255,255,255,.12);
+}
+.hero-trust-item strong{
+display:block;
+font-size:1.35rem;
+color:#fff;
+margin-bottom:8px;
+}
+.hero-trust-item span{
+font-size:.84rem;
+line-height:1.35;
+color:rgba(255,255,255,.72);
+}
+.hero-visual{
+position:relative;
+border-radius:42px;
+overflow:hidden;
+min-height:660px;
+box-shadow:0 40px 100px rgba(0,0,0,.26);
+}
+.hero-visual img{
+height:100%;
+object-fit:cover;
+}
+.hero-visual::before{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(180deg,rgba(18,5,31,.05),rgba(18,5,31,.72));
+z-index:1;
+}
+.hero-floating{
+position:absolute;
+left:28px;
+right:28px;
+bottom:28px;
+z-index:2;
+display:grid;
+gap:12px;
+}
+.hero-floating-card{
+padding:20px;
+border-radius:24px;
+background:rgba(255,255,255,.88);
+backdrop-filter:blur(18px);
+display:flex;
+align-items:center;
+gap:16px;
+}
+.float-icon{
+width:48px;
+height:48px;
+border-radius:16px;
+background:linear-gradient(135deg,var(--violet),var(--lilac));
+display:flex;
+align-items:center;
+justify-content:center;
+color:#fff;
+font-weight:900;
+}
+.hero-floating-card h3{
+font-size:1rem;
+color:var(--purple);
+margin-bottom:4px;
+}
+.hero-floating-card p{
+font-size:.86rem;
+line-height:1.45;
+color:var(--muted);
+}
+.decision-bar{
+margin-top:-46px;
+padding:0;
+z-index:10;
+}
+.decision-grid{
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:14px;
+padding:18px;
+border-radius:30px;
+background:#fff;
+box-shadow:0 24px 70px rgba(43,10,73,.12);
+}
+.decision-item{
+padding:20px;
+border-radius:22px;
+background:var(--soft2);
+border:1px solid var(--border);
+}
+.decision-item small{
+display:block;
+font-size:.72rem;
+font-weight:900;
+color:var(--muted);
+text-transform:uppercase;
+letter-spacing:.06em;
+margin-bottom:8px;
+}
+.decision-item strong{
+display:block;
+font-size:.96rem;
+line-height:1.38;
+color:var(--purple);
+}
+.grid-2{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:28px;
+margin-top:54px;
+}
+.grid-3{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:22px;
+margin-top:54px;
+}
+.grid-4{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:18px;
+margin-top:54px;
+}
+.card{
+padding:30px;
+border-radius:30px;
+background:#fff;
+border:1px solid var(--border);
+box-shadow:0 20px 60px rgba(43,10,73,.06);
+}
+.card-soft{
+background:linear-gradient(180deg,#fff,#FBF8FF);
+}
+.icon{
+width:54px;
+height:54px;
+border-radius:18px;
+background:rgba(109,40,217,.1);
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:900;
+color:var(--violet);
+margin-bottom:22px;
+}
+.card h3{
+font-size:1.22rem;
+line-height:1.15;
+letter-spacing:-.025em;
+color:var(--purple);
+margin-bottom:12px;
+}
+.card p,
+.card span{
+font-size:.94rem;
+line-height:1.68;
+color:var(--muted);
+}
+.dark-card{
+padding:28px;
+border-radius:28px;
+background:rgba(255,255,255,.06);
+border:1px solid rgba(255,255,255,.1);
+}
+.dark-card strong{
+display:block;
+font-size:1.05rem;
+color:#fff;
+margin-bottom:10px;
+}
+.dark-card span{
+display:block;
+font-size:.9rem;
+line-height:1.58;
+color:rgba(255,255,255,.7);
+}
+.audience-card{
+padding:38px;
+border-radius:32px;
+background:#fff;
+border:1px solid var(--border);
+box-shadow:0 20px 60px rgba(43,10,73,.06);
+}
+.audience-card.parent{
+background:linear-gradient(135deg,#fff,#F4ECFF);
+}
+.audience-card.student{
+background:linear-gradient(135deg,#fff,#FFF7ED);
+}
+.audience-card h3{
+font-size:1.6rem;
+line-height:1.1;
+letter-spacing:-.03em;
+color:var(--purple);
+margin-bottom:16px;
+}
+.audience-card p{
+font-size:.98rem;
+line-height:1.72;
+color:var(--muted);
+margin-bottom:24px;
+}
+.check-list{
+display:grid;
+gap:12px;
+}
+.check-item{
+display:flex;
+align-items:flex-start;
+gap:12px;
+font-size:.94rem;
+line-height:1.5;
+color:#38284A;
+}
+.check{
+min-width:22px;
+height:22px;
+border-radius:50%;
+background:rgba(22,163,74,.12);
+color:var(--green);
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:900;
+font-size:.78rem;
+}
+.split-feature{
+display:grid;
+grid-template-columns:.95fr 1.05fr;
+gap:36px;
+align-items:stretch;
+margin-top:54px;
+}
+.feature-panel{
+padding:42px;
+border-radius:36px;
+background:var(--purple);
+color:#fff;
+position:relative;
+overflow:hidden;
+}
+.feature-panel.dark-panel{
+background:var(--dark);
+}
+.feature-panel h3{
+font-size:clamp(2rem,3vw,3.2rem);
+line-height:1;
+letter-spacing:-.055em;
+margin-bottom:18px;
+}
+.feature-panel p{
+line-height:1.75;
+color:rgba(255,255,255,.74);
+margin-bottom:26px;
+}
+.mini-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+}
+.mini-card{
+padding:26px;
+border-radius:26px;
+background:#fff;
+border:1px solid var(--border);
+box-shadow:0 20px 60px rgba(43,10,73,.06);
+}
+.mini-card strong{
+display:block;
+font-size:1.08rem;
+color:var(--purple);
+margin-bottom:10px;
+}
+.mini-card span{
+font-size:.92rem;
+line-height:1.58;
+color:var(--muted);
+}
+.routes-head{
+display:grid;
+grid-template-columns:.85fr 1.15fr;
+gap:60px;
+align-items:end;
+margin-bottom:46px;
+}
+.routes-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:22px;
+}
+.route-card{
+position:relative;
+min-height:250px;
+padding:28px;
+border-radius:30px;
+overflow:hidden;
+color:#fff;
+background:linear-gradient(135deg,#2B0A49,#6D28D9);
+}
+.route-card:nth-child(2){
+background:linear-gradient(135deg,#144272,#2563EB);
+}
+.route-card:nth-child(3){
+background:linear-gradient(135deg,#4A1D0B,#F97316);
+}
+.route-card:nth-child(4){
+background:linear-gradient(135deg,#14532D,#16A34A);
+}
+.route-card:nth-child(5){
+background:linear-gradient(135deg,#3B0764,#A855F7);
+}
+.route-card:nth-child(6){
+background:linear-gradient(135deg,#1F2937,#64748B);
+}
+.route-card small{
+display:inline-flex;
+padding:8px 12px;
+border-radius:999px;
+background:rgba(255,255,255,.14);
+font-weight:900;
+font-size:.72rem;
+letter-spacing:.05em;
+text-transform:uppercase;
+margin-bottom:28px;
+}
+.route-card h3{
+font-size:1.5rem;
+line-height:1.08;
+letter-spacing:-.035em;
+margin-bottom:14px;
+max-width:260px;
+}
+.route-card p{
+font-size:.94rem;
+line-height:1.6;
+color:rgba(255,255,255,.78);
+max-width:300px;
+}
+.accordion-grid{
+display:grid;
+gap:16px;
+margin-top:54px;
+}
+details{
+background:#fff;
+border:1px solid var(--border);
+border-radius:26px;
+overflow:hidden;
+box-shadow:0 16px 50px rgba(43,10,73,.05);
+}
+summary{
+list-style:none;
+cursor:pointer;
+padding:24px 28px;
+display:flex;
+align-items:center;
+justify-content:space-between;
+gap:20px;
+font-weight:900;
+color:var(--purple);
+font-size:1.08rem;
+}
+summary::-webkit-details-marker{
+display:none;
+}
+summary::after{
+content:"+";
+width:34px;
+height:34px;
+border-radius:50%;
+background:rgba(109,40,217,.1);
+display:flex;
+align-items:center;
+justify-content:center;
+color:var(--violet);
+font-size:1.4rem;
+}
+details[open] summary::after{
+content:"–";
+}
+.accordion-content{
+padding:0 28px 28px;
+color:var(--muted);
+line-height:1.7;
+}
+.accordion-content ul{
+columns:2;
+padding-left:18px;
+margin-top:10px;
+}
+.accordion-content li{
+break-inside:avoid;
+margin-bottom:8px;
+}
+.gallery-head{
+display:flex;
+align-items:end;
+justify-content:space-between;
+gap:30px;
+margin-bottom:46px;
+}
+.gallery-actions{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+}
+.gallery-grid{
+display:grid;
+grid-template-columns:1.2fr .8fr .8fr;
+grid-auto-rows:260px;
+gap:18px;
+}
+.gallery-item{
+position:relative;
+border-radius:30px;
+overflow:hidden;
+background:linear-gradient(135deg,#2B0A49,#A855F7);
+border:1px solid var(--border);
+}
+.gallery-item.large{
+grid-row:span 2;
+}
+.gallery-item img{
+height:100%;
+object-fit:cover;
+opacity:.86;
+}
+.gallery-item::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(180deg,rgba(0,0,0,0),rgba(18,5,31,.72));
+}
+.gallery-caption{
+position:absolute;
+left:24px;
+right:24px;
+bottom:24px;
+z-index:2;
+color:#fff;
+}
+.gallery-caption strong{
+display:block;
+font-size:1.12rem;
+line-height:1.15;
+margin-bottom:8px;
+}
+.gallery-caption span{
+display:block;
+font-size:.88rem;
+line-height:1.45;
+color:rgba(255,255,255,.76);
+}
+.life-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:28px;
+margin-top:54px;
+}
+.life-card{
+min-height:430px;
+border-radius:34px;
+overflow:hidden;
+position:relative;
+}
+.life-card img{
+height:100%;
+object-fit:cover;
+}
+.life-card::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(180deg,rgba(0,0,0,.02),rgba(18,5,31,.74));
+}
+.life-content{
+position:absolute;
+left:28px;
+right:28px;
+bottom:28px;
+z-index:2;
+color:#fff;
+}
+.life-content h3{
+font-size:1.5rem;
+letter-spacing:-.035em;
+margin-bottom:10px;
+}
+.life-content p{
+line-height:1.62;
+color:rgba(255,255,255,.78);
+max-width:470px;
+}
+.international-visual{
+min-height:620px;
+border-radius:38px;
+overflow:hidden;
+position:relative;
+background:linear-gradient(135deg,#2B0A49,#2563EB);
+}
+.international-visual img{
+height:100%;
+object-fit:cover;
+opacity:.82;
+}
+.international-visual::after{
+content:"";
+position:absolute;
+inset:0;
+background:linear-gradient(180deg,rgba(43,10,73,.04),rgba(43,10,73,.76));
+}
+.international-overlay{
+position:absolute;
+left:34px;
+right:34px;
+bottom:34px;
+z-index:2;
+color:#fff;
+}
+.international-overlay h3{
+font-size:2rem;
+line-height:1;
+letter-spacing:-.05em;
+margin-bottom:14px;
+}
+.international-overlay p{
+line-height:1.65;
+color:rgba(255,255,255,.76);
+}
+.form-card{
+padding:38px;
+border-radius:34px;
+background:#160626;
+color:#fff;
+box-shadow:0 25px 90px rgba(22,6,38,.18);
+}
+.form-card h2{
+font-size:2rem;
+line-height:1.05;
+letter-spacing:-.045em;
+margin-bottom:12px;
+}
+.form-card p{
+color:rgba(255,255,255,.72);
+line-height:1.7;
+margin-bottom:24px;
+}
+.form-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:14px;
+}
+.form-field{
+display:flex;
+flex-direction:column;
+gap:8px;
+}
+.form-field.full{
+grid-column:1/-1;
+}
+.form-field label{
+font-size:.78rem;
+font-weight:900;
+text-transform:uppercase;
+letter-spacing:.05em;
+color:rgba(255,255,255,.68);
+}
+.form-field input,
+.form-field select,
+.form-field textarea{
+width:100%;
+padding:15px 16px;
+border-radius:16px;
+border:1px solid rgba(255,255,255,.12);
+background:rgba(255,255,255,.08);
+color:#fff;
+font-family:inherit;
+outline:none;
+}
+.form-field input::placeholder,
+.form-field textarea::placeholder{
+color:rgba(255,255,255,.42);
+}
+.form-field select option{
+color:#111;
+}
+.form-field textarea{
+min-height:110px;
+resize:vertical;
+}
+.form-note{
+font-size:.78rem;
+line-height:1.55;
+color:rgba(255,255,255,.5);
+margin-top:16px;
+}
+.faq-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:18px;
+margin-top:54px;
+}
+.faq-item{
+padding:28px;
+border-radius:28px;
+background:#FBF8FF;
+border:1px solid var(--border);
+}
+.faq-item h3{
+font-size:1.12rem;
+line-height:1.2;
+color:var(--purple);
+margin-bottom:12px;
+}
+.faq-item p{
+font-size:.94rem;
+line-height:1.65;
+color:var(--muted);
+}
+.contact-strip{
+margin-top:54px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:18px;
+}
+.contact-card{
+padding:26px;
+border-radius:28px;
+background:#fff;
+border:1px solid var(--border);
+box-shadow:0 18px 55px rgba(43,10,73,.05);
+}
+.contact-card small{
+display:block;
+font-size:.76rem;
+font-weight:900;
+color:var(--violet);
+text-transform:uppercase;
+letter-spacing:.05em;
+margin-bottom:10px;
+}
+.contact-card strong{
+display:block;
+font-size:1.05rem;
+line-height:1.45;
+color:var(--purple);
+}
+.final-cta{
+padding:110px 0;
+background:
+radial-gradient(circle at 80% 10%,rgba(168,85,247,.28),transparent 30%),
+linear-gradient(135deg,#1A052E,#6D28D9);
+color:#fff;
+text-align:center;
+}
+.final-cta h2{
+font-size:clamp(2.7rem,5vw,5.1rem);
+line-height:.94;
+letter-spacing:-.075em;
+max-width:980px;
+margin:0 auto 22px;
+}
+.final-cta p{
+max-width:760px;
+margin:0 auto 34px;
+line-height:1.78;
+color:rgba(255,255,255,.76);
+}
+.final-actions{
+display:flex;
+justify-content:center;
+gap:14px;
+flex-wrap:wrap;
+}
+@media(max-width:1180px){
+.nav-links{
+display:none;
+}
+.hero-grid,
+.routes-head,
+.split-feature,
+.grid-2{
+grid-template-columns:1fr;
+}
+.hero-visual{
+min-height:520px;
+}
+.decision-grid,
+.routes-grid,
+.grid-3,
+.grid-4,
+.faq-grid,
+.contact-strip,
+.life-grid{
+grid-template-columns:1fr;
+}
+.mini-grid{
+grid-template-columns:1fr;
+}
+.decision-bar{
+margin-top:0;
+padding-top:22px;
+}
+.gallery-grid{
+grid-template-columns:1fr;
+grid-auto-rows:320px;
+}
+.gallery-item.large{
+grid-row:span 1;
+}
+.gallery-head{
+align-items:flex-start;
+flex-direction:column;
+}
+}
+@media(max-width:760px){
+section{
+padding:76px 0;
+}
+.hero{
+padding-top:128px;
+}
+.hero-copy{
+padding:34px 24px;
+border-radius:32px;
+}
+.hero-title{
+font-size:3.1rem;
+}
+.hero-trust{
+grid-template-columns:1fr;
+}
+.hero-actions,
+.nav-actions{
+display:none;
+}
+.form-grid{
+grid-template-columns:1fr;
+}
+.hero-visual{
+min-height:430px;
+}
+.accordion-content ul{
+columns:1;
+}
+.note::after{
+left:auto;
+right:-16px;
+transform:translateX(0) scale(.92);
+}
+.note:hover::after{
+transform:translateX(0) scale(1);
+}
+.note::before{
+left:auto;
+right:0;
+transform:scale(.92);
+}
+.note:hover::before{
+transform:scale(1);
+}
+}
+</style>
+</head>
+<body>
+<header class="navbar">
+<div class="nav-inner">
+<a href="#inicio" class="logo">
+<span class="logo-mark">UVP</span>
+<span>Prepa UVP</span>
+</a>
+<nav class="nav-links">
+<a href="#diferentes">Diferenciadores</a>
+<a href="#transparencia">Transparencia</a>
+<a href="#rutas">Rutas</a>
+<a href="#campus">Campus</a>
+<a href="#plan">Plan</a>
+<a href="#admision">Admisión</a>
+</nav>
+<div class="nav-actions">
+<a href="#admision" class="btn btn-light">Recibir información</a>
+<a href="#admision" class="btn btn-primary">Agendar visita</a>
+</div>
+</div>
+</header>
+<main>
+<section class="hero" id="inicio">
+<div class="container">
+<div class="hero-grid">
+<div class="hero-copy">
+<div class="hero-badge">
+Preparatoria UVP · Puebla
+<span class="note light" data-note="La promesa principal conecta futuro universitario, acompañamiento familiar y exploración vocacional.">i</span>
+</div>
+<h1 class="hero-title">
+Descubre tu camino antes de llegar a la universidad.
+</h1>
+<p class="hero-subtitle">
+En Prepa UVP, cada estudiante fortalece sus habilidades, explora áreas profesionales y recibe acompañamiento para tomar mejores decisiones sobre su futuro universitario.
+</p>
+<div class="hero-actions">
+<a href="#admision" class="btn btn-primary">Recibir información</a>
+<a href="#rutas" class="btn btn-secondary">Explorar rutas vocacionales</a>
+</div>
+<div class="hero-trust">
+<div class="hero-trust-item">
+<strong>40+</strong>
+<span>Años de experiencia institucional</span>
+</div>
+<div class="hero-trust-item">
+<strong>35</strong>
+<span>Licenciaturas e ingenierías UVP para explorar futuro</span>
+</div>
+<div class="hero-trust-item">
+<strong>1er</strong>
+<span>Becas disponibles desde primer semestre</span>
+</div>
+</div>
+</div>
+<div class="hero-visual">
+<img src="assets/prepa-hero.jpg" alt="Estudiantes de Prepa UVP conviviendo en campus">
+<div class="hero-floating">
+<div class="hero-floating-card">
+<div class="float-icon">01</div>
+<div>
+<h3>Acompañamiento real</h3>
+<p>Tutorías, orientación y apoyo psicopedagógico durante una etapa clave.</p>
+</div>
+</div>
+<div class="hero-floating-card">
+<div class="float-icon">02</div>
+<div>
+<h3>Futuro universitario</h3>
+<p>Exploración de áreas profesionales desde la preparatoria.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="decision-bar" aria-label="Beneficios principales">
+<div class="container">
+<div class="decision-grid">
+<div class="decision-item">
+<small>Modelo</small>
+<strong>Bachillerato con formación laboral</strong>
+</div>
+<div class="decision-item">
+<small>Acompañamiento</small>
+<strong>Tutorías y psicopedagogía</strong>
+</div>
+<div class="decision-item">
+<small>Futuro</small>
+<strong>35 licenciaturas e ingenierías</strong>
+</div>
+<div class="decision-item">
+<small>Práctica</small>
+<strong>Laboratorios universitarios</strong>
+</div>
+<div class="decision-item">
+<small>Familias</small>
+<strong>Becas desde primer semestre</strong>
+</div>
+<div class="decision-item">
+<small>Experiencia</small>
+<strong>Talleres con profesionales</strong>
+</div>
+</div>
+</div>
+</section>
+<section class="white" id="diferentes">
+<div class="container">
+<div class="section-kicker">
+Lo que hace diferente a Prepa UVP
+<span class="note" data-note="Esta sección responde la pregunta clave: ¿por qué elegir UVP frente a otras preparatorias?">i</span>
+</div>
+<h2 class="section-title">
+Más que cursar la prepa: una ruta para explorar, prepararte y decidir.
+</h2>
+<p class="section-copy">
+Prepa UVP combina bachillerato, formación laboral, acompañamiento, instalaciones universitarias y experiencias de vida estudiantil para que cada estudiante avance con mayor claridad hacia su siguiente etapa.
+</p>
+<div class="grid-3">
+<div class="card card-soft">
+<div class="icon">01</div>
+<h3>Formación laboral desde preparatoria</h3>
+<p>Áreas prácticas que permiten explorar intereses profesionales antes de elegir carrera.</p>
+</div>
+<div class="card card-soft">
+<div class="icon">02</div>
+<h3>Ambiente universitario temprano</h3>
+<p>Los estudiantes se acercan a espacios, servicios y dinámicas propias de una universidad.</p>
+</div>
+<div class="card card-soft">
+<div class="icon">03</div>
+<h3>Talleres con profesionales</h3>
+<p>Experiencias prácticas impartidas por docentes y especialistas vinculados con el campo profesional.</p>
+</div>
+<div class="card card-soft">
+<div class="icon">04</div>
+<h3>Becas desde primer semestre</h3>
+<p>Opciones de apoyo para familias desde el inicio del bachillerato.</p>
+</div>
+<div class="card card-soft">
+<div class="icon">05</div>
+<h3>Acompañamiento académico y personal</h3>
+<p>Tutorías, seguimiento y apoyo psicopedagógico durante una etapa clave.</p>
+</div>
+<div class="card card-soft">
+<div class="icon">06</div>
+<h3>Instalaciones universitarias</h3>
+<p>Laboratorios, talleres, cocinas, clínicas, gimnasio y espacios de convivencia que hacen visible la experiencia.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="gradient" id="prestigio">
+<div class="container">
+<div class="section-kicker">
+Prestigio universitario desde prepa
+<span class="note" data-note="Esta sección eleva la percepción de valor: Prepa UVP no se presenta aislada, sino respaldada por el ecosistema universitario.">i</span>
+</div>
+<h2 class="section-title">
+Aprende en una prepa conectada con experiencia universitaria real.
+</h2>
+<p class="section-copy">
+La experiencia de Prepa UVP se fortalece con el respaldo de una comunidad universitaria: espacios especializados, docentes con experiencia, servicios institucionales y cercanía con distintas áreas profesionales.
+</p>
+<div class="split-feature">
+<div class="feature-panel">
+<h3>Una ventaja que empieza antes de elegir carrera.</h3>
+<p>
+Ser parte de UVP permite que los alumnos conozcan áreas profesionales, exploren intereses, usen espacios universitarios y desarrollen habilidades con acompañamiento.
+</p>
+<a href="#campus" class="btn btn-primary">Conocer espacios UVP</a>
+</div>
+<div class="mini-grid">
+<div class="mini-card">
+<strong>Docentes con experiencia profesional</strong>
+<span>Los talleres y áreas prácticas pueden ser impartidos por especialistas vinculados con el campo profesional y académico.</span>
+</div>
+<div class="mini-card">
+<strong>Conexión con licenciaturas UVP</strong>
+<span>El estudiante se acerca a áreas universitarias como salud, diseño, gastronomía, tecnología, negocios y ciencias sociales.</span>
+</div>
+<div class="mini-card">
+<strong>Ambiente universitario</strong>
+<span>La preparatoria se enriquece con espacios, servicios y dinámicas propias de una institución universitaria.</span>
+</div>
+<div class="mini-card">
+<strong>Formación con visión de futuro</strong>
+<span>Cada experiencia ayuda al alumno a tomar mejores decisiones sobre su siguiente etapa.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="white" id="transparencia">
+<div class="container">
+<div class="section-kicker">
+Transparencia institucional
+<span class="note" data-note="Este bloque responde preguntas sobre validez, reglamento, documentos, datos personales y claridad institucional.">i</span>
+</div>
+<h2 class="section-title">
+Información clara para una decisión segura.
+</h2>
+<p class="section-copy">
+Elegir preparatoria también implica revisar documentos, reglas, procesos, protección de datos y respaldo académico. Por eso esta sección debe funcionar como un puente hacia información oficial, reglamentos y asesoría personalizada.
+</p>
+<div class="grid-3">
+<div class="card">
+<div class="icon">V</div>
+<h3>Validez oficial</h3>
+<p>Solicita información sobre la incorporación, respaldo académico y documentos oficiales que recibe el estudiante al egresar.</p>
+</div>
+<div class="card">
+<div class="icon">R</div>
+<h3>Reglamento claro</h3>
+<p>Conoce reglas de convivencia, criterios académicos, responsabilidades de estudiantes y comunicación con familias antes de la inscripción.</p>
+</div>
+<div class="card">
+<div class="icon">D</div>
+<h3>Datos e imagen</h3>
+<p>Consulta políticas sobre protección de datos, uso de imagen, expedientes académicos y manejo de información sensible de menores.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="familias">
+<div class="container">
+<div class="section-kicker">
+Para alumnos y familias
+<span class="note" data-note="La decisión de preparatoria es familiar: los padres buscan confianza y el estudiante necesita imaginarse viviendo la experiencia.">i</span>
+</div>
+<h2 class="section-title">
+Una prepa pensada para decidir mejor el futuro.
+</h2>
+<p class="section-copy">
+Elegir preparatoria es elegir el entorno donde los jóvenes empiezan a definir su camino. En UVP combinamos formación académica, acompañamiento y experiencias que ayudan a cada estudiante a descubrir sus talentos.
+</p>
+<div class="grid-2">
+<div class="audience-card parent">
+<h3>Confianza para tu familia.</h3>
+<p>
+Sabemos que esta decisión también es familiar. Por eso integramos seguimiento académico, tutorías, apoyo psicopedagógico y opciones de beca desde el primer semestre.
+</p>
+<div class="check-list">
+<div class="check-item"><span class="check">✓</span><span>Acompañamiento psicopedagógico y tutorías.</span></div>
+<div class="check-item"><span class="check">✓</span><span>Becas disponibles desde primer semestre.</span></div>
+<div class="check-item"><span class="check">✓</span><span>Validez oficial y trayectoria institucional.</span></div>
+<div class="check-item"><span class="check">✓</span><span>Formación académica y laboral para fortalecer su perfil.</span></div>
+</div>
+</div>
+<div class="audience-card student">
+<h3>Una prepa para descubrir quién eres.</h3>
+<p>
+Vive una etapa con clases, proyectos, talleres, actividades, espacios universitarios y experiencias para explorar intereses, hacer amigos y prepararte para la universidad.
+</p>
+<div class="check-list">
+<div class="check-item"><span class="check">✓</span><span>Explora carreras antes de decidir.</span></div>
+<div class="check-item"><span class="check">✓</span><span>Participa en talleres, eventos, deportes y actividades.</span></div>
+<div class="check-item"><span class="check">✓</span><span>Usa espacios y laboratorios universitarios.</span></div>
+<div class="check-item"><span class="check">✓</span><span>Encuentra comunidad, amigos y pertenencia.</span></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="gradient" id="acompanamiento">
+<div class="container">
+<div class="section-kicker">
+Acompañamiento académico y psicopedagógico
+<span class="note" data-note="Esta sección responde la preocupación central de padres/tutores: seguimiento, adaptación, hábitos y apoyo personal.">i</span>
+</div>
+<h2 class="section-title">
+Tu hijo no cursa esta etapa solo.
+</h2>
+<p class="section-copy">
+Durante la preparatoria, cada estudiante cuenta con apoyo académico y psicopedagógico para avanzar con mayor seguridad en una etapa clave de su desarrollo.
+</p>
+<div class="split-feature">
+<div class="feature-panel dark-panel">
+<h3>Seguimiento para crecer con mayor claridad.</h3>
+<p>
+Prepa UVP integra tutorías, acompañamiento psicopedagógico y orientación para fortalecer el desarrollo académico, personal y vocacional de cada estudiante.
+</p>
+<a href="#admision" class="btn btn-primary">Solicitar orientación</a>
+</div>
+<div class="mini-grid">
+<div class="mini-card">
+<strong>Tutorías</strong>
+<span>Seguimiento académico para orientar el avance del estudiante durante la preparatoria.</span>
+</div>
+<div class="mini-card">
+<strong>Departamento psicopedagógico</strong>
+<span>Acompañamiento para fortalecer adaptación, hábitos, bienestar y desarrollo personal.</span>
+</div>
+<div class="mini-card">
+<strong>Hábitos de estudio</strong>
+<span>Apoyo para desarrollar organización, responsabilidad, investigación y preparación académica.</span>
+</div>
+<div class="mini-card">
+<strong>Comunicación con familias</strong>
+<span>Orientación clara durante el proceso de admisión y seguimiento de la experiencia educativa.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="white" id="seguridad">
+<div class="container">
+<div class="section-kicker">
+Entorno seguro y convivencia positiva
+<span class="note" data-note="Este bloque responde dudas sobre seguridad física, emocional, convivencia, protocolos y uso responsable de tecnología.">i</span>
+</div>
+<h2 class="section-title">
+Un entorno cuidado para aprender y convivir.
+</h2>
+<p class="section-copy">
+La experiencia escolar se acompaña con reglas claras, seguimiento, comunicación y canales de atención para favorecer una convivencia respetuosa, segura y responsable.
+</p>
+<div class="grid-3">
+<div class="card">
+<div class="icon">01</div>
+<h3>Convivencia respetuosa</h3>
+<p>Un ambiente que promueve integración, respeto, participación y bienestar entre estudiantes.</p>
+</div>
+<div class="card">
+<div class="icon">02</div>
+<h3>Protocolos de atención</h3>
+<p>Solicita información sobre canales de reporte, atención a conflictos y acompañamiento institucional.</p>
+</div>
+<div class="card">
+<div class="icon">03</div>
+<h3>Seguridad y protección civil</h3>
+<p>Consulta controles, medidas de seguridad, simulacros, protección civil y comunicación ante emergencias.</p>
+</div>
+<div class="card">
+<div class="icon">04</div>
+<h3>Convivencia digital</h3>
+<p>Reglas y orientación para uso responsable de celulares, redes sociales, fotografías y grupos digitales.</p>
+</div>
+<div class="card">
+<div class="icon">05</div>
+<h3>Atención socioemocional</h3>
+<p>Apoyo psicopedagógico para orientar adaptación, situaciones personales y desarrollo emocional.</p>
+</div>
+<div class="card">
+<div class="icon">06</div>
+<h3>Comunicación con tutores</h3>
+<p>Canales de información para que madres, padres y tutores conozcan el proceso y seguimiento escolar.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="white" id="rutas">
+<div class="container">
+<div class="routes-head">
+<div>
+<div class="section-kicker">
+Exploración vocacional
+<span class="note" data-note="La formación laboral se comunica como una ventaja de descubrimiento vocacional, no como simple capacitación.">i</span>
+</div>
+<h2 class="section-title">
+Explora áreas antes de elegir carrera.
+</h2>
+</div>
+<p class="section-copy">
+La formación laboral permite que los estudiantes se acerquen a campos profesionales reales antes de tomar una decisión universitaria.
+</p>
+</div>
+<div class="routes-grid">
+<div class="route-card">
+<small>Salud</small>
+<h3>Área de la salud</h3>
+<p>Acércate a conocimientos relacionados con bienestar, cuerpo humano, fisioterapia y servicios de salud.</p>
+</div>
+<div class="route-card">
+<small>Diseño</small>
+<h3>Comunicación gráfica</h3>
+<p>Explora creatividad visual, software, proyectos gráficos, impresión y comunicación digital.</p>
+</div>
+<div class="route-card">
+<small>Gastronomía</small>
+<h3>Procesos culinarios y repostería</h3>
+<p>Desarrolla habilidades prácticas en cocina, cultura gastronómica, panadería, repostería y servicio.</p>
+</div>
+<div class="route-card">
+<small>Tecnología</small>
+<h3>Domótica</h3>
+<p>Aprende bases de electrónica, mecanismos, Arduino, robótica y automatización aplicada.</p>
+</div>
+<div class="route-card">
+<small>Salud dental</small>
+<h3>Mecánica dental</h3>
+<p>Explora materiales, instrumental, prótesis y procesos de laboratorio dental.</p>
+</div>
+<div class="route-card">
+<small>Negocios</small>
+<h3>Contabilidad</h3>
+<p>Conoce bases administrativas, contables, legales y fiscales para comprender organizaciones.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="dark" id="talleres-profesionales">
+<div class="container">
+<div class="section-kicker">
+Talleres con profesionales
+<span class="note light" data-note="Este bloque eleva el valor de las capacitaciones: no son talleres genéricos, son experiencias conectadas con especialistas, programas universitarios e instalaciones.">i</span>
+</div>
+<h2 class="section-title">
+Aprende con especialistas que viven su profesión.
+</h2>
+<p class="section-copy">
+Las áreas de formación laboral permiten que el estudiante se acerque a disciplinas reales con acompañamiento de docentes y profesionales vinculados con el ecosistema universitario UVP.
+</p>
+<div class="split-feature">
+<div class="feature-panel dark-panel">
+<h3>Talleres que conectan la prepa con el mundo profesional.</h3>
+<p>
+Cada ruta está pensada para que el alumno no solo conozca una materia, sino que viva una experiencia práctica: cocina, diseña, experimenta, crea, calcula, automatiza, observa y decide con más claridad qué áreas le interesan para su futuro.
+</p>
+<div class="mini-grid">
+<div class="dark-card">
+<strong>Docentes especializados</strong>
+<span>Profesores con experiencia académica y profesional en sus áreas.</span>
+</div>
+<div class="dark-card">
+<strong>Práctica aplicada</strong>
+<span>Actividades, proyectos y experiencias relacionadas con campos profesionales.</span>
+</div>
+<div class="dark-card">
+<strong>Espacios UVP</strong>
+<span>Acceso a laboratorios, talleres, cocinas y ambientes universitarios.</span>
+</div>
+<div class="dark-card">
+<strong>Exploración real</strong>
+<span>El alumno prueba antes de decidir su carrera.</span>
+</div>
+</div>
+</div>
+<div class="mini-grid">
+<div class="mini-card">
+<strong>Gastronomía</strong>
+<span>Procesos culinarios y repostería conectados con docentes, cocinas, técnica y experiencia universitaria.</span>
+</div>
+<div class="mini-card">
+<strong>Diseño</strong>
+<span>Comunicación gráfica, software, creatividad visual, impresión y proyectos de comunicación.</span>
+</div>
+<div class="mini-card">
+<strong>Salud</strong>
+<span>Primer acercamiento a cuerpo humano, fisioterapia, bienestar y práctica terapéutica.</span>
+</div>
+<div class="mini-card">
+<strong>Tecnología</strong>
+<span>Electrónica, domótica, robótica, Arduino y automatización aplicada.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="areas">
+<div class="container">
+<div class="section-kicker">
+Áreas de capacitación en detalle
+<span class="note" data-note="Esta sección da información académica dura sin saturar la experiencia visual.">i</span>
+</div>
+<h2 class="section-title">
+Conoce las materias de cada ruta de formación laboral.
+</h2>
+<p class="section-copy">
+Cada área permite que el estudiante explore intereses profesionales a través de contenidos prácticos y progresivos durante la preparatoria.
+</p>
+<div class="accordion-grid">
+<details>
+<summary>Comunicación gráfica</summary>
+<div class="accordion-content">
+<ul>
+<li>Definición de Proyectos Emprendedores</li>
+<li>Bases del Diseño Gráfico</li>
+<li>Estrategias de Proyectos Emprendedores</li>
+<li>Software para el Diseño Gráfico</li>
+<li>Implementación de Proyectos Emprendedores</li>
+<li>Creación y Organización de la Información</li>
+<li>Sistemas de Impresión</li>
+<li>Implementación de Proyectos Gráficos</li>
+</ul>
+</div>
+</details>
+<details>
+<summary>Procesos culinarios y repostería</summary>
+<div class="accordion-content">
+<ul>
+<li>Definición de Proyectos Emprendedores</li>
+<li>Introducción a la Gastronomía</li>
+<li>Estrategias de Proyectos Emprendedores</li>
+<li>Nutrición</li>
+<li>Implementación de Proyectos Emprendedores</li>
+<li>Cultura Gastronómica</li>
+<li>Panadería y Repostería</li>
+<li>Banquetes</li>
+</ul>
+</div>
+</details>
+<details>
+<summary>Área de la salud</summary>
+<div class="accordion-content">
+<ul>
+<li>Aparatos y Sistemas I</li>
+<li>Bases Teóricas y Fundamentos de Fisioterapia</li>
+<li>Aparatos y Sistemas II</li>
+<li>Kinesiología</li>
+<li>Ejercicio Terapéutico</li>
+<li>Modalidades Terapéuticas y Agentes Físicos</li>
+<li>Fisioterapia Comunitaria</li>
+<li>Práctica Terapéutica</li>
+</ul>
+</div>
+</details>
+<details>
+<summary>Mecánica dental</summary>
+<div class="accordion-content">
+<ul>
+<li>Estructuras Básicas Estomatognáticas</li>
+<li>Materiales e Instrumental para Laboratorio Dental</li>
+<li>Salud Preventiva Bucodental</li>
+<li>Prótesis Fija con Laboratorio</li>
+<li>Prótesis Removible con Laboratorio</li>
+<li>Prótesis Móvil con Laboratorio I</li>
+<li>Prótesis Móvil con Laboratorio II</li>
+<li>Emprendimiento con Mecánica Dental</li>
+</ul>
+</div>
+</details>
+<details>
+<summary>Domótica</summary>
+<div class="accordion-content">
+<ul>
+<li>Definición de Proyectos Emprendedores</li>
+<li>Electrónica</li>
+<li>Estrategias de Proyectos Emprendedores</li>
+<li>Mecanismos</li>
+<li>Implementación de Proyectos Emprendedores</li>
+<li>Arduino</li>
+<li>Domótica</li>
+<li>Robótica</li>
+</ul>
+</div>
+</details>
+<details>
+<summary>Contabilidad</summary>
+<div class="accordion-content">
+<ul>
+<li>Administración I</li>
+<li>Contabilidad I</li>
+<li>Contabilidad II</li>
+<li>Administración II</li>
+<li>Contabilidad de Costos</li>
+<li>Introducción al Derecho</li>
+<li>Sistemas Contables</li>
+<li>Derecho Fiscal y Mercantil</li>
+</ul>
+</div>
+</details>
+</div>
+</div>
+</section>
+<section class="dark" id="campus">
+<div class="container">
+<div class="section-kicker">
+Campus, instalaciones y servicios UVP
+<span class="note light" data-note="Campus responde: ¿dónde estudia y qué instalaciones tiene? No debe mezclarse con vida estudiantil.">i</span>
+</div>
+<h2 class="section-title">
+Espacios que hacen visible la experiencia UVP.
+</h2>
+<p class="section-copy">
+La experiencia de Prepa UVP se fortalece con espacios de aprendizaje, práctica, convivencia y servicios universitarios que ayudan al estudiante a imaginar su futuro.
+</p>
+<div class="split-feature">
+<div class="international-visual">
+<img src="assets/prepa-campus-principal.jpg" alt="Campus e instalaciones Prepa UVP">
+<div class="international-overlay">
+<h3>Conoce dónde se vive Prepa UVP.</h3>
+<p>Agenda una visita para recorrer aulas, laboratorios, talleres, servicios y espacios de convivencia.</p>
+</div>
+</div>
+<div class="mini-grid">
+<div class="dark-card">
+<strong>Laboratorios especializados</strong>
+<span>Espacios para práctica, exploración y formación laboral.</span>
+</div>
+<div class="dark-card">
+<strong>Cocinas y talleres</strong>
+<span>Ambientes para procesos culinarios, repostería y práctica gastronómica.</span>
+</div>
+<div class="dark-card">
+<strong>Clínica dental y fisioterapia</strong>
+<span>Servicios universitarios que refuerzan el ecosistema institucional.</span>
+</div>
+<div class="dark-card">
+<strong>Gimnasio Chicáhuac</strong>
+<span>Espacio para actividad física, bienestar e integración.</span>
+</div>
+<div class="dark-card">
+<strong>Aulas y zonas de convivencia</strong>
+<span>Espacios para aprender, descansar, convivir y sentirse parte.</span>
+</div>
+<div class="dark-card">
+<strong>Recorrido virtual y visita</strong>
+<span>Una forma de conocer las instalaciones antes de tomar una decisión.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="white" id="galeria-instalaciones">
+<div class="container">
+<div class="gallery-head">
+<div>
+<div class="section-kicker">
+Galería de instalaciones
+<span class="note" data-note="Esta galería es prueba de infraestructura: laboratorios, cocina, talleres, aulas, espacios deportivos y convivencia.">i</span>
+</div>
+<h2 class="section-title">
+Instalaciones que se ven, se recorren y se viven.
+</h2>
+<p class="section-copy">
+Sustituye estas imágenes por fotos reales de Prepa UVP para elevar confianza, deseo y credibilidad.
+</p>
+</div>
+<div class="gallery-actions">
+<a href="#admision" class="btn btn-dark">Agendar visita</a>
+<a href="#campus" class="btn btn-light">Conocer campus</a>
+</div>
+</div>
+<div class="gallery-grid">
+<div class="gallery-item large">
+<img src="assets/prepa-instalaciones-01.jpg" alt="Instalaciones Prepa UVP">
+<div class="gallery-caption">
+<strong>Campus y espacios académicos</strong>
+<span>Áreas para clases, convivencia y aprendizaje diario.</span>
+</div>
+</div>
+<div class="gallery-item">
+<img src="assets/prepa-laboratorio-01.jpg" alt="Laboratorios UVP">
+<div class="gallery-caption">
+<strong>Laboratorios especializados</strong>
+<span>Espacios para práctica y formación laboral.</span>
+</div>
+</div>
+<div class="gallery-item">
+<img src="assets/prepa-gastronomia-01.jpg" alt="Cocina y gastronomía UVP">
+<div class="gallery-caption">
+<strong>Cocinas y talleres</strong>
+<span>Ambientes para procesos culinarios y repostería.</span>
+</div>
+</div>
+<div class="gallery-item">
+<img src="assets/prepa-deportes-01.jpg" alt="Instalaciones deportivas UVP">
+<div class="gallery-caption">
+<strong>Espacios deportivos</strong>
+<span>Áreas para actividad física, integración y bienestar.</span>
+</div>
+</div>
+<div class="gallery-item">
+<img src="assets/prepa-convivencia-01.jpg" alt="Alumnos conviviendo en Prepa UVP">
+<div class="gallery-caption">
+<strong>Convivencia estudiantil</strong>
+<span>Espacios para hacer comunidad y vivir la experiencia prepa.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="dark" id="ambiente-universitario">
+<div class="container">
+<div class="section-kicker">
+Ambiente universitario
+<span class="note light" data-note="Ambiente universitario responde: ¿qué gana el alumno por estudiar dentro de un ecosistema universitario?">i</span>
+</div>
+<h2 class="section-title">
+Vive la prepa dentro de un ecosistema universitario.
+</h2>
+<p class="section-copy">
+Prepa UVP permite que el estudiante se familiarice con dinámicas, espacios y experiencias universitarias desde antes de elegir carrera.
+</p>
+<div class="grid-4">
+<div class="dark-card">
+<strong>Contacto con áreas profesionales</strong>
+<span>Explora disciplinas vinculadas con licenciaturas e ingenierías UVP.</span>
+</div>
+<div class="dark-card">
+<strong>Uso de espacios especializados</strong>
+<span>Laboratorios, talleres, cocinas y servicios que enriquecen la experiencia del bachillerato.</span>
+</div>
+<div class="dark-card">
+<strong>Eventos y actividades universitarias</strong>
+<span>Participación en dinámicas académicas, culturales y de integración.</span>
+</div>
+<div class="dark-card">
+<strong>Mayor claridad vocacional</strong>
+<span>El ambiente universitario ayuda a imaginar posibilidades antes de elegir carrera.</span>
+</div>
+</div>
+</div>
+</section>
+<section class="gradient" id="internacional">
+<div class="container">
+<div class="section-kicker">
+Idiomas, intercambios y visión global
+<span class="note" data-note="La internacionalización es señal de prestigio; debe redactarse con cuidado para no prometer más de lo disponible.">i</span>
+</div>
+<h2 class="section-title">
+Experiencias que abren la mirada al mundo.
+</h2>
+<p class="section-copy">
+El aprendizaje del inglés y las experiencias internacionales pueden fortalecer autonomía, comunicación, criterio y visión global. Las opciones pueden estar sujetas a convocatoria, requisitos, documentación, costos y disponibilidad.
+</p>
+<div class="split-feature">
+<div class="international-visual">
+<img src="assets/prepa-internacional-01.jpg" alt="Experiencias internacionales Prepa UVP">
+<div class="international-overlay">
+<h3>Aprender también es conocer el mundo.</h3>
+<p>Las experiencias internacionales fortalecen autonomía, cultura, comunicación y visión de futuro.</p>
+</div>
+</div>
+<div class="mini-grid">
+<div class="mini-card">
+<strong>Inglés y comunicación global</strong>
+<span>El aprendizaje de inglés acompaña el recorrido académico y fortalece la preparación para experiencias universitarias.</span>
+</div>
+<div class="mini-card">
+<strong>Intercambios académicos</strong>
+<span>Oportunidades para vivir experiencias formativas en otros contextos educativos, sujetas a disponibilidad.</span>
+</div>
+<div class="mini-card">
+<strong>Viajes y experiencias culturales</strong>
+<span>Actividades que amplían la perspectiva del estudiante y fortalecen su desarrollo personal.</span>
+</div>
+<div class="mini-card">
+<strong>Preparación para el futuro</strong>
+<span>Experiencias que ayudan al estudiante a desarrollar seguridad, independencia y criterio.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="white" id="plan">
+<div class="container">
+<div class="section-kicker">
+Plan académico por etapas
+<span class="note" data-note="Primero se explica el plan como ruta de crecimiento; después se muestra el detalle por semestre.">i</span>
+</div>
+<h2 class="section-title">
+Tres etapas para crecer, explorar y decidir.
+</h2>
+<p class="section-copy">
+El plan académico acompaña al estudiante en una ruta progresiva: primero fortalece bases, después explora habilidades y finalmente se prepara para tomar decisiones universitarias.
+</p>
+<div class="grid-3">
+<div class="card">
+<div class="icon">1</div>
+<h3>Bases académicas</h3>
+<p>Primer y segundo semestre fortalecen comunicación, pensamiento matemático, ciencias, inglés, cultura digital, humanidades y actividad física.</p>
+</div>
+<div class="card">
+<div class="icon">2</div>
+<h3>Exploración y habilidades</h3>
+<p>Tercer y cuarto semestre integran formación laboral, ciencias sociales, cultura digital, pensamiento literario, inglés y talleres.</p>
+</div>
+<div class="card">
+<div class="icon">3</div>
+<h3>Decisión universitaria</h3>
+<p>Quinto y sexto semestre fortalecen áreas propedéuticas, habilidades de pensamiento, salud, ciudadanía y especialización.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="plan-completo">
+<div class="container">
+<div class="section-kicker">
+Plan de estudios completo
+<span class="note" data-note="Esta sección atiende a padres y tutores que buscan profundidad académica.">i</span>
+</div>
+<h2 class="section-title">
+Consulta las materias por semestre.
+</h2>
+<p class="section-copy">
+El detalle académico se presenta en acordeones para conservar la información completa sin saturar visualmente la página.
+</p>
+<div class="accordion-grid">
+<details>
+<summary>1er semestre</summary>
+<div class="accordion-content">
+<ul>
+<li>La materia y sus interacciones I</li>
+<li>Ciencias sociales I</li>
+<li>Cultura digital I</li>
+<li>Pensamiento matemático I</li>
+<li>Lengua y comunicación I</li>
+<li>Inglés I</li>
+<li>Humanidades I</li>
+<li>Laboratorio de investigación</li>
+<li>Actividades físicas y deportivas I</li>
+<li>Actividades artísticas y culturales I</li>
+</ul>
+</div>
+</details>
+<details>
+<summary>2do semestre</summary>
+<div class="accordion-content">
+<ul>
+<li>Conservación de la energía y sus interacciones con la materia</li>
+<li>Ciencias sociales II</li>
+<li>Cultura digital II</li>
+<li>Pensamiento matemático II</li>
+<li>Lengua y comunicación II</li>
+<li>Inglés II</li>
+<li>Humanidades II</li>
+<li>Taller de ciencias I</li>
+<li>Actividades físicas y deportivas II</li>
+<li>Actividades artísticas y culturales II</li>
+</ul>
+</div>
+</details>
+<details>
+<summary>3er semestre</summary>
+<div class="accordion-content">
+<ul>
+<li>Ecosistemas, interacciones, energía y dinámica</li>
+<li>Pensamiento matemático III</li>
+<li>Lengua y comunicación III</li>
+<li>Inglés III</li>
+<li>Humanidades III</li>
+<li>Taller de ciencias II</li>
+<li>Formación laboral básica A</li>
+<li>Formación laboral básica B</li>
+<li>Educación Integral en sexualidad y género I</li>
+</ul>
+</div>
+</details>
+<details>
+<summary>4to semestre</summary>
+<div class="accordion-content">
+<ul>
+<li>Reacciones químicas, conservación de la materia en la formación de nuevas sustancias</li>
+<li>Conciencia histórica y perspectivas del México antiguo</li>
+<li>Taller de cultura digital</li>
+<li>Temas selectos de matemáticas I</li>
+<li>Pensamiento literario</li>
+<li>Inglés IV</li>
+<li>Espacio y sociedad</li>
+<li>Ciencias sociales III</li>
+<li>Formación laboral básica A</li>
+<li>Formación laboral básica B</li>
+<li>Educación Integral en sexualidad y género II</li>
+</ul>
+</div>
+</details>
+<details>
+<summary>5to semestre</summary>
+<div class="accordion-content">
+<ul>
+<li>La energía en los procesos de la vida diaria</li>
+<li>Conciencia histórica II: México durante el expansionismo capitalista</li>
+<li>Talleres de habilidades del pensamiento</li>
+<li>Formación fundamental extendida: recurso sociocognitivo A</li>
+<li>Formación fundamental extendida: recurso sociocognitivo B</li>
+<li>Formación fundamental extendida: área de conocimiento A</li>
+<li>Formación fundamental extendida: área de conocimiento B</li>
+<li>Formación laboral básica A</li>
+<li>Formación laboral básica B</li>
+<li>Educación para la salud</li>
+</ul>
+</div>
+</details>
+<details>
+<summary>6to semestre</summary>
+<div class="accordion-content">
+<ul>
+<li>Organismos, estructuras y procesos. Herencia y evolución biológica</li>
+<li>Conciencia histórica III. La realidad actual en perspectiva histórica</li>
+<li>Temas selectos de matemáticas II</li>
+<li>Formación fundamental extendida: recurso sociocognitivo A</li>
+<li>Formación fundamental extendida: recurso sociocognitivo B</li>
+<li>Formación fundamental extendida: área de conocimiento A</li>
+<li>Formación fundamental extendida: área de conocimiento B</li>
+<li>Formación laboral básica A IV</li>
+<li>Formación laboral básica B IV</li>
+<li>Práctica y colaboración ciudadana</li>
+</ul>
+</div>
+</details>
+</div>
+</div>
+</section>
+<section class="white" id="propedeuticos">
+<div class="container">
+<div class="section-kicker">
+Componentes propedéuticos terminales
+<span class="note" data-note="Esta sección conecta el bachillerato con áreas universitarias y fortalece la narrativa de futuro.">i</span>
+</div>
+<h2 class="section-title">
+Elige áreas que conectan con tu siguiente etapa.
+</h2>
+<p class="section-copy">
+Los componentes propedéuticos ayudan al estudiante a profundizar en áreas relacionadas con sus intereses universitarios.
+</p>
+<div class="grid-4">
+<div class="card">
+<h3>Ciencias exactas</h3>
+<p>Temas selectos de Matemáticas y Cálculo Integral para fortalecer pensamiento lógico y análisis.</p>
+</div>
+<div class="card">
+<h3>Artes</h3>
+<p>Historia del Arte y Psicología para explorar sensibilidad, cultura, comportamiento y expresión.</p>
+</div>
+<div class="card">
+<h3>Experimentales</h3>
+<p>Introducción a Ciencias de la Salud y Bioquímica para acercarse a áreas científicas.</p>
+</div>
+<div class="card">
+<h3>Sociales</h3>
+<p>Sociología y Derecho para comprender sociedad, normas, ciudadanía e instituciones.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="gradient" id="universidad">
+<div class="container">
+<div class="section-kicker">
+De la prepa a la universidad
+<span class="note" data-note="Este bloque responde: ¿cómo ayuda UVP a elegir carrera con mayor claridad?">i</span>
+</div>
+<h2 class="section-title">
+Elige carrera con mayor claridad.
+</h2>
+<p class="section-copy">
+Prepa UVP conecta la formación académica, los componentes propedéuticos, las áreas prácticas y el ambiente universitario para que cada estudiante pueda tomar decisiones mejor informadas.
+</p>
+<div class="grid-3">
+<div class="card">
+<div class="icon">01</div>
+<h3>Orientación vocacional</h3>
+<p>Exploración de intereses, habilidades, personalidad y opciones de futuro para elegir con mayor seguridad.</p>
+</div>
+<div class="card">
+<div class="icon">02</div>
+<h3>35 licenciaturas e ingenierías</h3>
+<p>Un mapa amplio de posibilidades para conocer áreas universitarias y proyectar el siguiente paso.</p>
+</div>
+<div class="card">
+<div class="icon">03</div>
+<h3>Experiencias por área</h3>
+<p>Talleres, laboratorios, proyectos y rutas prácticas para acercarse a campos profesionales reales.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="white" id="vida">
+<div class="container">
+<div class="section-kicker">
+Vida estudiantil
+<span class="note" data-note="Vida estudiantil responde al alumno: ¿me voy a sentir parte?">i</span>
+</div>
+<h2 class="section-title">
+Una etapa para aprender, convivir y descubrir talentos.
+</h2>
+<p class="section-copy">
+En Prepa UVP, la vida estudiantil combina talleres, actividades, eventos, deportes, cultura y convivencia para que cada estudiante aprenda, se integre y disfrute una etapa clave de su vida.
+</p>
+<div class="life-grid">
+<div class="life-card">
+<img src="assets/prepa-vida-estudiantil-01.jpg" alt="Vida estudiantil Prepa UVP">
+<div class="life-content">
+<h3>Encuentra tu grupo</h3>
+<p>Un entorno para hacer amigos, integrarte y vivir una etapa positiva.</p>
+</div>
+</div>
+<div class="life-card">
+<img src="assets/prepa-talleres-deportes-01.jpg" alt="Talleres y deportes Prepa UVP">
+<div class="life-content">
+<h3>Prueba nuevos talentos</h3>
+<p>Talleres culturales, deportivos y actividades que fortalecen habilidades personales.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="white" id="galeria-vida">
+<div class="container">
+<div class="gallery-head">
+<div>
+<div class="section-kicker">
+Galería de vida UVP
+<span class="note" data-note="No es la galería de instalaciones: aquí se muestra comunidad y experiencia diaria.">i</span>
+</div>
+<h2 class="section-title">
+Una experiencia que también se vive fuera del salón.
+</h2>
+<p class="section-copy">
+Sustituye estas imágenes por fotos reales de comunidad, eventos, talleres, deportes, amigos y actividades.
+</p>
+</div>
+<div class="gallery-actions">
+<a href="#admision" class="btn btn-dark">Quiero conocer la prepa</a>
+</div>
+</div>
+<div class="gallery-grid">
+<div class="gallery-item large">
+<img src="assets/prepa-vida-01.jpg" alt="Vida estudiantil">
+<div class="gallery-caption">
+<strong>Vida estudiantil</strong>
+<span>Momentos para convivir, integrarse y construir comunidad.</span>
+</div>
+</div>
+<div class="gallery-item">
+<img src="assets/prepa-eventos-01.jpg" alt="Eventos">
+<div class="gallery-caption">
+<strong>Eventos y actividades</strong>
+<span>Experiencias que fortalecen pertenencia.</span>
+</div>
+</div>
+<div class="gallery-item">
+<img src="assets/prepa-talleres-01.jpg" alt="Talleres">
+<div class="gallery-caption">
+<strong>Talleres culturales</strong>
+<span>Espacios para expresión y creatividad.</span>
+</div>
+</div>
+<div class="gallery-item">
+<img src="assets/prepa-deportes-02.jpg" alt="Deportes">
+<div class="gallery-caption">
+<strong>Deporte y bienestar</strong>
+<span>Actividad física e integración.</span>
+</div>
+</div>
+<div class="gallery-item">
+<img src="assets/prepa-amigos-01.jpg" alt="Amigos y comunidad">
+<div class="gallery-caption">
+<strong>Amigos y comunidad</strong>
+<span>Un ambiente para sentirse parte.</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="gradient" id="historias">
+<div class="container">
+<div class="section-kicker">
+Historias de estudiantes y familias
+<span class="note" data-note="Reemplazar con testimonios reales; no inventar nombres.">i</span>
+</div>
+<h2 class="section-title">
+Experiencias que ayudan a imaginar el futuro.
+</h2>
+<p class="section-copy">
+Conoce cómo estudiantes y familias viven la preparatoria: una etapa para descubrir intereses, fortalecer habilidades y prepararse para la universidad.
+</p>
+<div class="grid-3">
+<div class="card">
+<div class="icon">A</div>
+<p>“En Prepa UVP encontré áreas que no conocía y eso me ayudó a pensar mejor qué carrera quiero estudiar.”</p>
+<h3>Alumno de Prepa UVP</h3>
+<p>Exploración vocacional</p>
+</div>
+<div class="card">
+<div class="icon">M</div>
+<p>“Como familia, nos dio tranquilidad saber que existe acompañamiento académico y apoyo psicopedagógico.”</p>
+<h3>Madre de familia</h3>
+<p>Confianza y seguimiento</p>
+</div>
+<div class="card">
+<div class="icon">E</div>
+<p>“Las actividades y talleres hacen que la prepa también se viva como una etapa de convivencia y crecimiento.”</p>
+<h3>Estudiante actual</h3>
+<p>Vida estudiantil</p>
+</div>
+</div>
+</div>
+</section>
+<section class="gradient" id="admision">
+<div class="container">
+<div class="grid-2">
+<div class="card">
+<div class="section-kicker">
+Admisión, fechas y prueba diagnóstica
+<span class="note" data-note="Aquí inicia la acción: fechas, costos, becas, requisitos y visita.">i</span>
+</div>
+<h2 class="section-title">
+Da el siguiente paso con información clara.
+</h2>
+<p class="section-copy">
+Recibe orientación personalizada para conocer el plan de estudios, áreas de formación laboral, becas, fechas de admisión, costos y opciones para agendar una visita.
+</p>
+<div class="accordion-grid" style="margin-top:26px">
+<details open>
+<summary>Ciclo escolar</summary>
+<div class="accordion-content">
+<p>Periodo Febrero - Julio 2026. Inicio de clases: Febrero 2026.</p>
+</div>
+</details>
+<details>
+<summary>Prueba diagnóstica para primer semestre</summary>
+<div class="accordion-content">
+<ul>
+<li>22 de noviembre de 2025</li>
+<li>29 de noviembre de 2025</li>
+<li>13 de diciembre de 2025</li>
+<li>20 de diciembre de 2025</li>
+<li>10 de enero de 2026</li>
+<li>17 de enero de 2026</li>
+<li>24 de enero de 2026</li>
+</ul>
+</div>
+</details>
+<details>
+<summary>Becas y proceso de ingreso</summary>
+<div class="accordion-content">
+<p>Solicita orientación para conocer opciones de beca, requisitos, fechas, prueba diagnóstica, documentos, costos y pasos de inscripción.</p>
+</div>
+</details>
+</div>
+</div>
+<div class="form-card">
+<h2>Recibe información personalizada de Prepa UVP.</h2>
+<p>
+Conoce becas, fechas, plan de estudios, áreas de formación laboral, costos y opciones para agendar una visita.
+</p>
+<form>
+<div class="form-grid">
+<div class="form-field">
+<label>Nombre</label>
+<input type="text" placeholder="Nombre completo">
+</div>
+<div class="form-field">
+<label>WhatsApp</label>
+<input type="tel" placeholder="Número de contacto">
+</div>
+<div class="form-field">
+<label>Correo</label>
+<input type="email" placeholder="correo@ejemplo.com">
+</div>
+<div class="form-field">
+<label>Soy</label>
+<select>
+<option>Madre / padre / tutor</option>
+<option>Aspirante</option>
+<option>Familiar</option>
+</select>
+</div>
+<div class="form-field">
+<label>Me interesa</label>
+<select>
+<option>Recibir información general</option>
+<option>Agendar visita al plantel</option>
+<option>Conocer becas</option>
+<option>Conocer costos y fechas</option>
+<option>Orientación vocacional</option>
+<option>Prueba diagnóstica</option>
+<option>Plan de estudios</option>
+<option>Intercambios y experiencias internacionales</option>
+<option>Talleres y formación laboral</option>
+<option>Validez oficial y reglamento</option>
+<option>Seguridad y acompañamiento</option>
+</select>
+</div>
+<div class="form-field">
+<label>Grado actual</label>
+<select>
+<option>3º de secundaria</option>
+<option>2º de secundaria</option>
+<option>1º de secundaria</option>
+<option>Otro</option>
+</select>
+</div>
+<div class="form-field full">
+<label>Mensaje</label>
+<textarea placeholder="Cuéntanos qué información te gustaría recibir."></textarea>
+</div>
+<div class="form-field full">
+<button type="submit" class="btn btn-primary" style="width:100%">
+Quiero recibir información
+</button>
+</div>
+</div>
+<p class="form-note">
+Al enviar este formulario, un asesor académico podrá contactarte para brindarte información sobre admisión, becas, costos y próximos inicios.
+</p>
+</form>
+</div>
+</div>
+</div>
+</section>
+<section class="white" id="faq">
+<div class="container">
+<div class="section-kicker">
+Preguntas frecuentes y contacto
+<span class="note" data-note="FAQ responde dudas técnicas sin convertir toda la página en preguntas y respuestas.">i</span>
+</div>
+<h2 class="section-title">
+Dudas comunes antes de elegir preparatoria.
+</h2>
+<p class="section-copy">
+Resuelve preguntas principales sobre validez, becas, formación laboral, acompañamiento, seguridad, idiomas, intercambios, plantel y admisión.
+</p>
+<div class="faq-grid">
+<div class="faq-item">
+<h3>¿La Prepa UVP cuenta con formación laboral?</h3>
+<p>Sí. El bachillerato se complementa con áreas de formación laboral que ayudan al estudiante a explorar intereses profesionales antes de elegir carrera.</p>
+</div>
+<div class="faq-item">
+<h3>¿Hay becas desde el primer semestre?</h3>
+<p>Sí. Existen opciones de beca desde primer semestre, sujetas a promedio de secundaria y proceso institucional de admisión.</p>
+</div>
+<div class="faq-item">
+<h3>¿Qué tipo de acompañamiento recibe el estudiante?</h3>
+<p>Cuenta con tutorías y apoyo psicopedagógico para fortalecer su desarrollo académico, adaptación y avance durante la preparatoria.</p>
+</div>
+<div class="faq-item">
+<h3>¿Los estudiantes tienen acceso a espacios universitarios?</h3>
+<p>Sí. Como parte de UVP, los estudiantes pueden acercarse a laboratorios, servicios y experiencias universitarias que complementan su formación.</p>
+</div>
+<div class="faq-item">
+<h3>¿Los talleres son impartidos por profesionales?</h3>
+<p>Las rutas prácticas se vinculan con docentes y especialistas del ecosistema UVP, lo que permite acercar al estudiante a experiencias profesionales reales.</p>
+</div>
+<div class="faq-item">
+<h3>¿Hay intercambios o experiencias internacionales?</h3>
+<p>La experiencia UVP puede integrar oportunidades de movilidad, intercambios, viajes académicos o experiencias culturales. Solicita información para conocer opciones disponibles.</p>
+</div>
+<div class="faq-item">
+<h3>¿Cómo se atiende la convivencia y seguridad?</h3>
+<p>Solicita información sobre reglamento, protocolos, canales de atención, protección civil, convivencia digital y acompañamiento psicopedagógico.</p>
+</div>
+<div class="faq-item">
+<h3>¿Cómo puedo conocer el plantel?</h3>
+<p>Puedes solicitar información y agendar una visita para conocer espacios, resolver dudas y recibir orientación personalizada.</p>
+</div>
+</div>
+<div class="contact-strip">
+<div class="contact-card">
+<small>Ubicación</small>
+<strong>Calle 3 Sur 5759, Col. El Cerrito, C.P. 72440 Puebla, México</strong>
+</div>
+<div class="contact-card">
+<small>Correo</small>
+<strong>info@uvp.mx / admisiones@uvp.mx</strong>
+</div>
+<div class="contact-card">
+<small>Teléfono</small>
+<strong>22 22 66 94 88 / 22 22 66 94 89 Ext. 139 / 157 / 221</strong>
+</div>
+</div>
+</div>
+</section>
+<section class="final-cta">
+<div class="container">
+<h2>El futuro universitario empieza desde la prepa.</h2>
+<p>
+Agenda una visita, conoce los espacios, resuelve tus dudas y recibe orientación personalizada para valorar si Prepa UVP es la opción adecuada para tu familia.
+</p>
+<div class="final-actions">
+<a href="#admision" class="btn btn-primary">Recibir información</a>
+<a href="#rutas" class="btn btn-secondary">Explorar rutas vocacionales</a>
+</div>
+</div>
+</section>
+</main>
+</body>
+</html>
